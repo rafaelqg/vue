@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <!--https://vuejs.org/guide/quick-start -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </head>
+    <body style="padding-left:30%; padding-right: 30%;background-color: #000;">
+        <div id="app" style="background-color: #FFF;padding:50px">
+            <h1>{{ title }}</h1>
+
+            <div  v-for="(product, index) in products">
+                <label>Name:</label>
+                <br/>
+                {{product.name}}
+                <br /><br />
+
+
+                <label>Description:</label>
+                <br/>
+                {{product.description}}
+                <br /><br />
+
+                <label>Price ($):</label>
+                <br />
+                {{product.price}}
+                <br /><br />
+
+                <a href="{{product.link}}">{{product.link}}</a>
+                <br />
+
+                <hr />
+            </div>
+
+        </div>
+
+
+        <script>
+            const { createApp, ref } = Vue
+          
+            createApp({
+              setup() {
+
+
+                const title = ref("Products Galery");
+                const products = getProducts ();
+                return {
+                  title,
+                  products
+                }
+              }
+            }).mount('#app');
+
+            function getProducts (){
+                return [
+                    {"name": "Apple 2025 MacBook Air 15-inch Laptop with M4 chip", "description": "Apple 2025 MacBook Air 15-inch Laptop with M4 chip: Built for Apple Intelligence, 15.3-inch Liquid Retina Display, 24GB Unified Memory, 512GB SSD Storage, 12MP Center Stage Camera, Touch ID; Starlight", "price": 1599, "link": "https://www.amazon.com/Apple-2025-MacBook-15-inch-Laptop/dp/B0DZDBQD4K?ref_=ast_sto_dp&th=1"},
+                    {"name": "Apple 2025 MacBook Air 15-inch Laptop with M4 chip", "description": "Built for Apple Intelligence, 15.3-inch Liquid Retina Display, 16GB Unified Memory, 512GB SSD Storage, 12MP Center Stage Camera, Touch ID; Sky Blue", "price": 1364.00, "link": "https://www.amazon.com/Apple-2025-MacBook-15-inch-Laptop/dp/B0DZDBS1YD?ref_=ast_sto_dp&th=1"},
+                    {"name": "Apple 2025 MacBook Air 15-inch Laptop with M4 chip", "description": " Built for Apple Intelligence, 15.3-inch Liquid Retina Display, 16GB Unified Memory, 256GB SSD Storage, 12MP Center Stage Camera, Touch ID; Silver", "price": 1183.00, "link": "https://www.amazon.com/Apple-2025-MacBook-15-inch-Laptop/dp/B0DZDB8H69?ref_=ast_sto_dp&th=1"},
+                ];
+            }
+          </script>
+    </body>
+</html>
